@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use((req, res, next) => {
-  User.findById("651900f5251aa1c3f093ce74")
+  User.findById("65195ac8d8152b9a10cf2f8e")
     .then((user) => {
       req.user = user;
       next();
@@ -27,14 +27,16 @@ app.use((req, res, next) => {
     .catch((err) => console.log(err));
 });
 
+
 app.use("/admin", adminRoutes);
 app.use(shopRoutes);
 
 app.use(errorController.get404);
 
+
 mongoose
   .connect(
-    "mongodb+srv://kirti:VYJAE4sfSGq8yamH@cluster0.2isva5p.mongodb.net/shop?retryWrites=true&w=majority"
+    "mongodb+srv://kk:W13X0R2Ld5Qn4kfw@cluster0.2isva5p.mongodb.net/shop?retryWrites=true&w=majority"
   )
   .then((result) => {
     User.findOne().then((user) => {

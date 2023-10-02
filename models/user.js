@@ -55,6 +55,11 @@ UserSchema.methods.deleteItemFromCart = function (productId) {
   return this.save();
 };
 
+UserSchema.methods.removeFromCart=function(){
+  this.cart={items:[]}
+  return this.save()
+}
+
 module.exports = mongoose.model("User", UserSchema);
 
 // const mongodb = require('mongodb');
